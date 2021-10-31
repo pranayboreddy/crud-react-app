@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes } from "./Routes";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Container, Divider } from "@mui/material";
+import { GolbalProvider } from "./context/GlobalState";
+import { Header } from "./components/header/Header";
+import NotificationAlert from "./components/notificationAlert/NotificationAlert";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GolbalProvider>
+      <Header />
+      <Divider />
+      <Container maxWidth="md">
+        <Router>
+          <Routes />
+        </Router>
+      </Container>
+      <NotificationAlert />
+    </GolbalProvider>
   );
 }
 
